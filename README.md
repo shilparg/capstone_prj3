@@ -868,7 +868,9 @@ This capstone simulates a smart factory environment using synthetic IoT data, se
 5. Visualize results in QuickSight
 6. Monitor alerts via SNS and CloudWatch
 
----
+-------------------
+Some proposal to use for simulation
+https://nodered.org/
 
 Would you like help bundling this into a GitHub repo with commit messages and issue tracker setup? Or want to prep a short executive pitch summary for LinkedIn or recruiter outreach? You're ready to showcase this with confidence.
 
