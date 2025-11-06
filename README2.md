@@ -462,7 +462,83 @@ st.dataframe(alerts)
 ```
 
 ---
+**Got it, Shilpa. Here's everything you asked for—modular, audit-aligned, and recruiter-ready.**
 
-Would you like me to bundle these into a GitHub folder structure next, or generate sample CSVs and screenshots for dashboard simulation? We’re at full portfolio polish.
+---
+
+## 📁 Sample CSVs for Dashboard Simulation
+
+### `sample_data.csv`
+
+| timestamp           | temperature | humidity | vibration | anomaly | severity | shap_reason                  |
+|---------------------|-------------|----------|-----------|---------|----------|------------------------------|
+| 2025-11-06 23:00:00 | 75.2        | 88.1     | 0.92      | True    | High     | Vibration spike              |
+| 2025-11-06 23:05:00 | 22.4        | 45.3     | 0.12      | False   | None     | —                            |
+| 2025-11-06 23:10:00 | 80.0        | 90.0     | 0.98      | True    | Critical | Temp + vibration correlation |
+
+### `iam_events.csv`
+
+| timestamp           | user         | action         | resource              | ip_address     |
+|---------------------|--------------|----------------|-----------------------|----------------|
+| 2025-11-06 22:45:00 | engineer_01  | AttachRole     | LambdaExecutionRole  | 192.168.1.10   |
+| 2025-11-06 22:50:00 | auditor_02   | GetPolicy      | S3AccessPolicy        | 192.168.1.12   |
+| 2025-11-06 22:55:00 | admin_root   | CreateUser     | IAMUser               | 192.168.1.1    |
+
+### `sns_alerts.csv`
+
+| timestamp           | alert_type     | source_service | message                                 |
+|---------------------|----------------|----------------|-----------------------------------------|
+| 2025-11-06 23:15:00 | Anomaly        | SageMaker      | High vibration detected in zone 3       |
+| 2025-11-06 23:20:00 | IAM Change     | CloudTrail     | New IAM role attached to Lambda         |
+| 2025-11-06 23:25:00 | Fault Injected | IoT Simulator  | Simulated dropout in temperature sensor |
+
+---
+
+## 📓 ML Notebook Annotation Highlights
+
+- **SHAP Visuals**:
+  - `shap.summary_plot(shap_values[1], X_test)` for feature importance
+  - `shap.force_plot(...)` for individual prediction explanation
+
+- **Governance Notes**:
+  - Model metadata: version, training timestamp, feature set
+  - Audit rationale: anomaly threshold justification, feature selection logic
+  - Explainability: SHAP plots embedded in executive dashboard
+
+- **ONNX Export**:
+  ```python
+  from skl2onnx import convert_sklearn
+  onnx_model = convert_sklearn(model, initial_types=[('input', FloatTensorType([None, 3]))])
+  ```
+
+---
+
+## 🧭 Onboarding Guides
+
+### `setup_checklist.md`
+
+- ✅ Clone repo and install dependencies
+- ✅ Configure AWS credentials via `aws configure`
+- ✅ Run `terraform init && terraform apply`
+- ✅ Start `mqtt_simulator.py` to stream data
+- ✅ Launch Streamlit dashboard with `streamlit run streamlit_app.py`
+- ✅ Review alerts in `sns_alerts.csv`
+
+### `NOTES.md`
+
+- Architecture: Modular AWS flow with security zones
+- CI/CD: GitHub Actions → Terraform → Lambda/SageMaker
+- Governance: IAM matrix, audit trail, encryption zones
+- SRE: SLIs/SLOs, runbooks, alert matrix
+
+### Screenshot Mockups (described)
+
+- **Dashboard**: Sensor trends, anomaly table, IAM audit viewer
+- **Pipeline**: GitHub Actions stages with security scan and deploy
+- **Architecture**: Color-coded flow from IoT to ML to dashboard
+
+---
+
+
 
 
